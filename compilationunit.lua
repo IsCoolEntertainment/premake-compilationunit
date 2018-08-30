@@ -54,7 +54,9 @@ function premake.extensions.compilationunit.customBakeFiles(base, prj)
 			local filename = cfg.files[i]
 			if cu.isIncludedInCompilationUnit(cfg, filename) == true then
 				table.insert(cu.compilationunits[cfg], filename)
-				table.remove(cfg.files, i)
+				if cfg.compilationunitsonly then
+					table.remove(cfg.files, i)
+				end
 			end
 		end
 
