@@ -254,12 +254,12 @@ function premake.extensions.compilationunit.getCompilationUnitName(cfg, index, s
 	local language = cfg.language
 	local extension = nil
 	
-	if ( cfg.compilationunitextensions ~= nil ) then
-		  extension = cfg.compilationunitextensions[ language ]
+	if (cfg.compilationunitextensions ~= nil) then
+		extension = cfg.compilationunitextensions[language]
 	end
 	
 	if extension == nil then
-		 extension = iif(language == "C", ".c", ".cpp")
+		extension = iif(language == "C", ".c", ".cpp")
 	end
 	
 	return premake.extensions.compilationunit.compilationunitname .. index .. extension
@@ -311,7 +311,7 @@ if _OPTIONS["compilationunit"] ~= nil then
 
 	-- setup the overrides
 	premake.override(premake.oven, "bakeFiles", cu.customBakeFiles)
-	premake.override(premake.fileconfig, "addconfig",  cu.customAddFileConfig)
+	premake.override(premake.fileconfig, "addconfig", cu.customAddFileConfig)
 	premake.override(premake.oven, "bakeConfigs", cu.customBakeConfigs)
 
 end
